@@ -51,7 +51,7 @@ public class PatientsController : ControllerBase
                     IdDoctor = prescription.Doctor.IdDoctor,
                     FirstName = prescription.Doctor.FirstName
                 },
-                Medicaments = prescription.Prescription_Medicaments.Select(pm => new MedicamentDto
+                Medicaments = prescription.Prescription_Medicaments.Select(pm => new PatientsMedicamentDto
                 {
                     IdMedicament = pm.Medicament.IdMedicament,
                     Name = pm.Medicament.Name,
@@ -78,11 +78,11 @@ public class PrescriptionDto
     public int IdPrescription { get; set; }
     public DateTime Date { get; set; }
     public DateTime DueDate { get; set; }
-    public List<MedicamentDto> Medicaments { get; set; }
+    public List<PatientsMedicamentDto> Medicaments { get; set; }
     public DoctorDto Doctor { get; set; }
 }
 
-public class MedicamentDto
+public class PatientsMedicamentDto
 {
     public int IdMedicament { get; set; }
     public string Name { get; set; } = string.Empty;
