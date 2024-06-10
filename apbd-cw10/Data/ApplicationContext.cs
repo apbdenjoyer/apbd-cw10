@@ -93,6 +93,7 @@ namespace apbd_cw10.Data
                 e.HasOne(e => e.Medicament)
                     .WithMany(e => e.Prescriptions_Medicaments)
                     .HasForeignKey(e => e.IdMedicament);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 e.HasOne(e => e.Prescription)
                     .WithMany(e => e.Prescription_Medicaments)
